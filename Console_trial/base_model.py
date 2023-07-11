@@ -23,12 +23,13 @@ class BaseModel:
         """
         update the current update_at
         """
-        self.update_at = datetime.now
-    
+        self.updated_at = datetime.now
+
     def to_dict(self):
         """
         returns a dictionary containing all keys of __dict__
         """
-    
-    def str(self):
-        return 
+        
+
+    def __str__(self):
+        return ("[{:s}] ({:s}) {:s} {:s}".format(self.__class__.__name__, self.id, self.__dict__))
