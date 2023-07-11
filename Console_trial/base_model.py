@@ -29,7 +29,10 @@ class BaseModel:
         """
         returns a dictionary containing all keys of __dict__
         """
-        
+        di = self.__dict.copy()
+        di['created_at'] = self.created_at.isoformat()
+        di['updated_at'] = self.updated_at.isoformat()
+        return di
 
     def __str__(self):
         return ("[{:s}] ({:s}) {:s} {:s}".format(self.__class__.__name__, self.id, self.__dict__))
